@@ -3,12 +3,31 @@ body {
     font-family: tahoma;
 }
 
+select {
+    -webkit-appearance: menulist-button;
+    color: black;
+  }
+  
+  select:invalid {
+    color: #757575;
+  }
+
+#button {
+    background-color: #3c5a99;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    height: 40px;
+    width: 300px;
+}
+
 #login_box {
     background-color: white;
-    height: 400px;
+    font-weight: bold;
     margin: auto;
     margin-top: 50px;
     padding: 10px;
+    padding-bottom: 50px;
     padding-top: 50px;
     text-align: center;
     width: 800px;
@@ -32,4 +51,13 @@ body {
     padding: 4px;
     text-align: center;
     width: 70px;
+}
+
+#text {
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 40px;
+    padding: 4px;
+    width: 300px;
 }
