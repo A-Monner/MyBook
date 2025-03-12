@@ -28,9 +28,30 @@ body {
     text-align: center;
 }
 
-#friends-bar {
+#friends {
+    clear: both;
+    color: #405d9b;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#friends-area {
     flex: 1;
     min-height: 400px;
+}
+
+#friends-bar {
+    background-color: white;
+    color: #aaa;
+    margin-top: 20px;
+    min-height: 400px;
+    padding: 8px;
+}
+
+#friends-img {
+    float: left;
+    margin: 4px;
+    width: 75px;
 }
 
 #menu-buttons {
@@ -39,9 +60,52 @@ body {
     width: 100px;
 }
 
-#posts-bar {
+#post {
+    display: flex;
+    font-size: 13px;
+    padding: 4px;
+}
+
+#post-form {
+    border: none;
+    font-family: tahoma;
+    font-size: 14px;
+    height: 60px;
+    width: 100%;
+}
+
+#post-pic {
+    margin: 4px;
+    width: 75px;
+}
+
+#post-submit {
+    background-color: #405d9b;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    float: right;
+    font-size: 14px;
+    padding: 4px;
+    width: 50px;
+}
+
+#poster-name {
+    color: #405d9b;
+    font-weight: bold;
+}
+
+#posts-area {
     flex: 2.5;
     min-height: 400px;
+    padding: 20px;
+    padding-right: 0px;
+}
+
+#posts-bar {
+    background-color: white;
+    border: solid thin #aaa;
+    padding: 10px;
 }
 
 #profile_name {
@@ -71,6 +135,12 @@ body {
     font-size: 30px;
     margin: auto;
     width: 800px;
+}
+
+#timeline-bar {
+    background-color: white;
+    margin-top: 20px;
+    padding: 10px;
 }
 
 #top-bar {
