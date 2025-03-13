@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>MyBook | Profile</title>
+        <title>MyBook | Timeline</title>
         <link href="css/profile_styles.css" rel="stylesheet">
     </head>
 
@@ -17,44 +17,16 @@
         </div>
 
         <!-- Cover Area -->
-         <div id="cover-area">
-            <div id="cover-top">
-                <img src="images/mountain.jpg" id="cover-image">
-                <img src="images/selfie.jpg" id="profile-pic"><br>
-                <div id="profile-name">Mary Banda</div><hr>
-                <div id="menu-buttons">Timeline</div>|
-                <div id="menu-buttons">About</div>|
-                <div id="menu-buttons">Friends</div>|
-                <div id="menu-buttons">Photos</div>|
-                <div id="menu-buttons">Settings</div>
-            </div>
+        <div id="cover-area">
 
             <!-- Below Cover Area -->
             <div id="content-area">
 
-                <!-- Friends Area -->
+                <!-- Profile Area -->
                 <div id="friends-area">
                     <div id="friends-bar">
-                        Friends<hr>
-                        <div id="friends">
-                            <img src="images/user1.jpg" id="friends-img"><br>
-                            First User
-                        </div>
-
-                        <div id="friends">
-                            <img src="images/user2.jpg" id="friends-img"><br>
-                            Second User
-                        </div>
-
-                        <div id="friends">
-                            <img src="images/user3.jpg" id="friends-img"><br>
-                            Third User
-                        </div>
-
-                        <div id="friends">
-                            <img src="images/user4.jpg" id="friends-img"><br>
-                            Fourth User
-                        </div>
+                        <img src="images/selfie.jpg" id="timeline-pic">
+                        <div id="profile-name">Mary Banda</div><br>
                     </div>
                 </div>
 

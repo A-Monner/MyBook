@@ -24,8 +24,13 @@ body {
 
 #cover-top {
     background-color: white;
-    color: #405d9b;
+    color: #aaa;
     text-align: center;
+}
+
+#cover-area hr {
+    border-top: 1px solid #aaa;
+    width: 90%;
 }
 
 #friends {
@@ -33,6 +38,11 @@ body {
     color: #405d9b;
     font-size: 12px;
     font-weight: bold;
+    height: 83px;
+}
+
+#friends:hover {
+    background-color: #e8fffe;
 }
 
 #friends-area {
@@ -43,9 +53,11 @@ body {
 #friends-bar {
     background-color: white;
     color: #aaa;
+    font-size: 20px;
     margin-top: 20px;
     min-height: 400px;
     padding: 8px;
+    text-align: center;
 }
 
 #friends-img {
@@ -55,9 +67,17 @@ body {
 }
 
 #menu-buttons {
+    color: #405d9b;
     display: inline-block;
-    margin: 2px;
+    margin-bottom: 3px;
+    margin-left: -2px;
+    margin-right: 1px;
+    padding: 2px;
     width: 100px;
+}
+
+#menu-buttons:hover {
+    background-color: #e8fffe;
 }
 
 #post {
@@ -108,18 +128,19 @@ body {
     padding: 10px;
 }
 
-#profile_name {
+#profile-name {
+    color: #405d9b;
     font-size: 20px;
 }
 
-#profile_pic {
+#profile-pic {
     border: solid 2px white;
     border-radius: 50%;
     margin-top: -200px;
     width: 150px;
 }
 
-#search_box {
+#search-box {
     background-image: url(../images/search.png);
     background-position: right;
     background-repeat: no-repeat;
@@ -131,7 +152,7 @@ body {
     width: 400px;
 }
 
-#site_name {
+#site-name {
     font-size: 30px;
     margin: auto;
     width: 800px;
@@ -141,6 +162,17 @@ body {
     background-color: white;
     margin-top: 20px;
     padding: 10px;
+}
+
+#timeline-name {
+    color: #aaa;
+    font-size: 20px;
+}
+
+#timeline-pic {
+    border: solid 2px white;
+    border-radius: 50%;
+    width: 150px;
 }
 
 #top-bar {
