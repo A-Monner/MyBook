@@ -41,5 +41,3 @@
             }
         }
     }
-
-    $DB = new Database(); // DB becomes the database
