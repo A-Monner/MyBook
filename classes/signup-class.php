@@ -20,10 +20,14 @@
                     }
                 }
 
-                // Check if name has numbers
+                // Check if name has numbers, spaces
                 if($key == "first_name") {
                     if(is_numeric($value)) {
                         $this->error = $this->error . "first name cannot be a number. <br>";
+                    }
+
+                    if(strstr($value, " ")) {
+                        $this->error = $this->error . "first name cannot have spaces. <br>";
                     }
                 }
 
@@ -31,6 +35,10 @@
                 if($key === "last_name") {
                     if(is_numeric($value)) {
                         $this->error = $this->error . "last name cannot be a number. <br>";
+                    }
+
+                    if(strstr($value, " ")) {
+                        $this->error = $this->error . "last name cannot have spaces. <br>";
                     }
                 }
             }
@@ -47,8 +55,8 @@
         public function create_user($data) {
             
             // Query Variables
-            $first_name = $data['first_name'];
-            $last_name = $data['last_name'];
+            $first_name = ucfirst($data['first_name']);
+            $last_name = ucfirst($data['last_name']);
             $gender = $data['gender'];
             $email = $data['email'];
             $password = $data['password'];

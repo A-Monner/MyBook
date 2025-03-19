@@ -20,6 +20,9 @@
             echo "<br> The following errors occurred: <br><br>";
             echo $result;
             echo "</div>";
+        } else {
+            header("Location: login.php");
+            die;
         }
 
         $first_name = $_POST['first_name'];
