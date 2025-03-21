@@ -41,9 +41,11 @@
 
         <div id="login_box">
             <div>Login to MyBook</div><br>
-            <input value="<?php echo $email?>" type="text" id="text" placeholder="Email"><br><br>
-            <input value="<?php echo $password?>" type="password" id="text" placeholder="Password"><br><br>
-            <input type="submit" id="button" value="Login">
+            <form method="post">
+                <input name="email" value="<?php echo $email?>" type="text" id="text" placeholder="Email"><br><br>
+                <input name="password" value="<?php echo $password?>" type="password" id="text" placeholder="Password"><br><br>
+                <input type="submit" id="button" value="Login">
+            </form>
         </div>
     </body>
 </html>

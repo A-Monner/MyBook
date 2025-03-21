@@ -1,3 +1,35 @@
+<?php
+    session_start();
+    include("classes/connect.php");
+    include("classes/login-class.php");
+    include("classes/user-class.php");
+
+    // Check if user is logged in
+    if(isset($_SESSION['mybook_user_id']) && is_numeric($_SESSION['mybook_user_id'])) {
+        $id = $_SESSION['mybook_user_id'];
+        $login = new Login();
+
+        $result = $login->check_login($id);
+
+        if($result) {
+            // Retrieve user data
+            $user = new User();
+            $user_data = $user->get_data($id);
+
+            if(!$user_data) {
+                header("Location: login.php");
+                die;
+            }
+        } else {
+            header("Location: login.php");
+            die;
+        }
+    } else {
+        header("Location: login.php");
+        die;
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +53,7 @@
             <div id="cover-top">
                 <img src="images/mountain.jpg" id="cover-image">
                 <img src="images/selfie.jpg" id="profile-pic"><br>
-                <div id="profile-name">Mary Banda</div><hr>
+                <div id="profile-name"><?php echo $user_data['first_name'] . " " . $user_data['last_name']?></div><hr>
                 <div id="menu-buttons">Timeline</div>|
                 <div id="menu-buttons">About</div>|
                 <div id="menu-buttons">Friends</div>|

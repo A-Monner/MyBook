@@ -12,7 +12,6 @@
 
             $query = "select * from users where email = '$email' limit 1";
             
-            
             // Call & read from database
             $DB = new Database();
             $result = $DB->read($query);
@@ -22,14 +21,30 @@
 
                 if($password == $row['password']) {
                     // Create session data
-                    $_SESSION['user_id'] = $row['user_id'];
+                    $_SESSION['mybook_user_id'] = $row['user_id'];
                 } else {
-                    $error .= "Wrong password. <br>";
+                    $this->error .= "Wrong password. <br>";
                 }
             } else {
-                $error .= "No such email was found. <br>";
+                $this->error .= "No such email was found. <br>";
             }
             
-            return $error;
+            return $this->error;
+        }
+
+        // --- Check If User is Logged In --- \\
+        public function check_login($id) {
+            $query = "select user_id from users where user_id = '$id' limit 1";
+            
+            // Call & read from database
+            $DB = new Database();
+            $result = $DB->read($query);
+
+            // Check to see if we have user ID
+            if($result) {
+                return true;
+            }
+
+            return false;
         }
     }
