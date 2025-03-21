@@ -66,6 +66,13 @@ body {
     width: 75px;
 }
 
+#logout {
+    color: white;
+    float: right;
+    font-size: 11px;
+    margin: 10px;
+}
+
 #menu-buttons {
     color: #405d9b;
     display: inline-block;

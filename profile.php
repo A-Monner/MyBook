@@ -2,9 +2,10 @@
     session_start();
     include("classes/connect.php");
     include("classes/login-class.php");
+    include("classes/post-class.php");
     include("classes/user-class.php");
 
-    // Check if user is logged in
+    // === Check User Logged-in === \\
     if(isset($_SESSION['mybook_user_id']) && is_numeric($_SESSION['mybook_user_id'])) {
         $id = $_SESSION['mybook_user_id'];
         $login = new Login();
@@ -28,6 +29,13 @@
         header("Location: login.php");
         die;
     }
+
+    // === Post Content === \\
+    if($_SERVER['REQUEST_METHOD'] == "POST") {
+        $post = new Post();
+        $id = $_SESSION['mybook_user_id'];
+        $result = $post->create_post($id, $_POST);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +53,7 @@
                 MyBook &nbsp &nbsp
                 <input type="text" id="search-box" placeholder="Search for people">
                 <img src="images/selfie.jpg" id="corner-pfp">
+                <a href="logout.php"><span id="logout">Logout</span></a>
             </div>
         </div>
 
@@ -93,8 +102,10 @@
                 <!-- Posts Area -->
                 <div id="posts-area">
                     <div id="posts-bar">
-                        <textarea id="post-form" placeholder="What's on your mind?"></textarea>
-                        <input id="post-submit" type="submit" value="Post"><br>
+                        <form method="post">
+                            <textarea name="post" id="post-form" placeholder="What's on your mind?"></textarea>
+                            <input id="post-submit" type="submit" value="Post"><br>
+                        </form>
                     </div>
 
                     <!-- Posts -->
