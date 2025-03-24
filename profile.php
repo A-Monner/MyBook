@@ -30,12 +30,27 @@
         die;
     }
 
-    // === Post Content === \\
+    // === Post Content / Create Post === \\
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         $post = new Post();
         $id = $_SESSION['mybook_user_id'];
         $result = $post->create_post($id, $_POST);
+
+        if($result == "") {
+            header("Location: profile.php");
+            die;
+        } else {
+            echo "<div style='background-color: grey; color: white; font-size: 12px; text-align: center;'>";
+            echo "<br> The following errors occurred: <br><br>";
+            echo $result;
+            echo "</div>";
+        }
     }
+
+    // === Collect Posts / Display Posts === \\
+    $post = new Post();
+    $id = $_SESSION['mybook_user_id'];
+    $posts = $post->get_posts($id);
 ?>
 
 <!DOCTYPE html>
@@ -110,25 +125,16 @@
 
                     <!-- Posts -->
                     <div id="timeline-bar">
-                        <div id="post">
-                            <div>
-                                <img src="images/user1.jpg" id="post-pic">
-                            </div>
-                            <div>
-                                <div id="poster-name">First Guy</div>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard dummy
-                                text ever since the 1500s, when an unknown printer took a galley
-                                of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic
-                                typesetting, remaining essentially unchanged. It was popularised in
-                                the 1960s with the release of Letraset sheets containing Lorem
-                                Ipsum passages, and more recently with desktop publishing
-                                software like Aldus PageMaker including versions of Lorem Ipsum.
-                                <br><br>
-                                <a href="">Like</a> . <a href="">Comment</a> . <span>April 23 2025<span>
-                            </div>
-                        </div>
+                        <?php
+                            if($posts) {
+                                foreach($posts as $ROW) {
+                                    $user = new User();
+                                    $ROW_USER = $user->get_user($ROW['user_id']);
+                                    $ROW_USER = $ROW_USER[0];
+                                    include("post.php");
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

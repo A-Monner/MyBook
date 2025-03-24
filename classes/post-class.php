@@ -34,4 +34,18 @@
 
             return $number;
         }
+
+        // --- Get Posts / Display posts -- \\
+        public function get_posts($id) {
+            $query = "select * from posts where user_id = '$id' order by id desc limit 10";
+
+            $DB = new Database();
+            $result = $DB->read($query);
+
+            if($result) {
+                return $result;
+            } else {
+                return false;
+            }
+        }
     }
