@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    include("classes/connect.php");
+    include("classes/login-class.php");
+    include("classes/post-class.php");
+    include("classes/user-class.php");
+
+    $login = new Login();
+    $user_data = $login->check_login($_SESSION['mybook_user_id']);
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,13 +19,7 @@
     <body>
 
         <!-- Top Bar -->
-        <div id="top-bar">
-            <div id="site-name">
-                MyBook &nbsp &nbsp
-                <input type="text" id="search-box" placeholder="Search for people">
-                <img src="images/selfie.jpg" id="corner-pfp">
-            </div>
-        </div>
+        <?php include("header.php"); ?>
 
         <!-- Cover Area -->
         <div id="cover-area">
@@ -26,7 +31,7 @@
                 <div id="friends-area">
                     <div id="friends-bar">
                         <img src="images/selfie.jpg" id="timeline-pic">
-                        <div id="profile-name">Mary Banda</div><br>
+                        <a href="profile.php" style="text-decoration: none;"><div id="profile-name"><?php echo $user_data['first_name'] . " " . $user_data['last_name'] ?></div></a><br>
                     </div>
                 </div>
 

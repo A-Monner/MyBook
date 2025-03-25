@@ -34,17 +34,24 @@
 
         // --- Check If User is Logged In --- \\
         public function check_login($id) {
-            $query = "select user_id from users where user_id = '$id' limit 1";
-            
-            // Call & read from database
-            $DB = new Database();
-            $result = $DB->read($query);
+            if(is_numeric($id)) {
+                $query = "select * from users where user_id = '$id' limit 1";
+                
+                // Call & read from database
+                $DB = new Database();
+                $result = $DB->read($query);
 
-            // Check to see if we have user ID
-            if($result) {
-                return true;
+                // Check to see if we have user ID
+                if($result) {
+                    $user_data = $result[0];
+                    return $user_data;
+                } else {
+                    header("Location: login.php");
+                    die;
+                }
+            } else {
+                header("Location: login.php");
+                die;
             }
-
-            return false;
         }
     }
